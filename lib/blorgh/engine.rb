@@ -18,8 +18,8 @@ module Blorgh
 
     # add engine assets to precompiled path when those
     # assets are not explicitly required by the main app
-    initializer "blorgh.assets.precompile" do |app|
-      app.config.assets.precompile += %w(admin.css admin.js)
-    end
+    # initializer "blorgh.assets.precompile" do |app|
+    #   app.config.assets.precompile += %w(admin.css admin.js)
+    # end
   end
 end

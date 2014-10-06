@@ -1,6 +1,6 @@
 module Blorgh
   class Post < ActiveRecord::Base
-    include Blorgh::Concerns::Models::Post
+    include Blorgh::Concerns::Post
     # attr_accessor :author_name
     # has_many :comments
     # belongs_to :author, class_name: Blorgh.author_class.to_s
