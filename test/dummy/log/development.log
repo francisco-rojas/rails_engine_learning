@@ -1,0 +1,472 @@
+  [1m[36m (512.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (75.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBlorghPosts (20140829033711)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "blorgh_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "text" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140829033711"]]
+  [1m[36m (103.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-31 19:22:00 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/railties-4.0.9/lib/rails/templates/rails/welcome/index.html.erb (5.8ms)
+Completed 200 OK in 39ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-31 19:22:00 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/railties-4.0.9/lib/rails/templates/rails/welcome/index.html.erb (0.5ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blorgh" for 127.0.0.1 at 2014-08-31 19:22:17 -0600
+Processing by Blorgh::PostsController#index as HTML
+  [1m[36mBlorgh::Post Load (2.0ms)[0m  [1mSELECT "blorgh_posts".* FROM "blorgh_posts"[0m
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/index.html.erb within layouts/blorgh/application (5.5ms)
+Completed 200 OK in 99ms (Views: 85.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/blorgh/application.css?body=1" for 127.0.0.1 at 2014-08-31 19:22:17 -0600
+
+
+Started GET "/assets/blorgh/posts.css?body=1" for 127.0.0.1 at 2014-08-31 19:22:17 -0600
+
+
+Started GET "/assets/blorgh/posts.js?body=1" for 127.0.0.1 at 2014-08-31 19:22:17 -0600
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2014-08-31 19:22:17 -0600
+
+
+Started GET "/assets/blorgh/application.js?body=1" for 127.0.0.1 at 2014-08-31 19:22:17 -0600
+
+
+Started GET "/blorgh/posts/new" for 127.0.0.1 at 2014-08-31 19:22:19 -0600
+Processing by Blorgh::PostsController#new as HTML
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/_form.html.erb (105.1ms)
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/new.html.erb within layouts/blorgh/application (110.8ms)
+Completed 200 OK in 117ms (Views: 115.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/blorgh/application.css?body=1" for 127.0.0.1 at 2014-08-31 19:22:19 -0600
+
+
+Started GET "/assets/blorgh/posts.css?body=1" for 127.0.0.1 at 2014-08-31 19:22:19 -0600
+
+
+Started GET "/assets/blorgh/application.js?body=1" for 127.0.0.1 at 2014-08-31 19:22:19 -0600
+
+
+Started GET "/assets/blorgh/posts.js?body=1" for 127.0.0.1 at 2014-08-31 19:22:19 -0600
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2014-08-31 19:22:19 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20140901012249)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "text" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140901012249"]]
+  [1m[36m (109.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateComments (20140901012249)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "comments"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140901012249'[0m
+  [1m[35m (124.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBlorghComments (20140901012558)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "blorgh_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "text" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140901012558"]]
+  [1m[36m (104.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/blorgh" for 127.0.0.1 at 2014-08-31 19:49:01 -0600
+Processing by Blorgh::PostsController#index as HTML
+  [1m[36mBlorgh::Post Load (1.1ms)[0m  [1mSELECT "blorgh_posts".* FROM "blorgh_posts"[0m
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/index.html.erb within layouts/blorgh/application (6.0ms)
+Completed 200 OK in 656ms (Views: 637.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/blorgh/application.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:03 -0600
+
+
+Started GET "/assets/blorgh/comments.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:03 -0600
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:03 -0600
+
+
+Started GET "/assets/blorgh/posts.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:03 -0600
+
+
+Started GET "/assets/blorgh/comments.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:03 -0600
+
+
+Started GET "/assets/blorgh/posts.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:03 -0600
+
+
+Started GET "/assets/blorgh/application.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:03 -0600
+
+
+Started GET "/blorgh/posts/new" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+Processing by Blorgh::PostsController#new as HTML
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/_form.html.erb (20.5ms)
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/new.html.erb within layouts/blorgh/application (68.7ms)
+Completed 200 OK in 74ms (Views: 72.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/blorgh/application.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+
+
+Started GET "/assets/blorgh/posts.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+
+
+Started GET "/assets/blorgh/comments.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+
+
+Started GET "/assets/blorgh/comments.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+
+
+Started GET "/assets/blorgh/posts.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+
+
+Started GET "/assets/blorgh/application.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:04 -0600
+
+
+Started POST "/blorgh/posts" for 127.0.0.1 at 2014-08-31 19:49:22 -0600
+Processing by Blorgh::PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dlQpESJY/+CPVa6vQOL7TBW3tulZz7Ehqlm8RbewOIw=", "post"=>{"title"=>"Test", "text"=>"Lorem ipsum..."}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (129.5ms)[0m  [1mINSERT INTO "blorgh_posts" ("created_at", "text", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 01 Sep 2014 01:49:22 UTC +00:00], ["text", "Lorem ipsum..."], ["title", "Test"], ["updated_at", Mon, 01 Sep 2014 01:49:22 UTC +00:00]]
+  [1m[35m (196.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/blorgh/posts/1
+Completed 302 Found in 333ms (ActiveRecord: 325.7ms)
+
+
+Started GET "/blorgh/posts/1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+Processing by Blorgh::PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBlorgh::Post Load (0.3ms)[0m  [1mSELECT "blorgh_posts".* FROM "blorgh_posts" WHERE "blorgh_posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mBlorgh::Comment Load (0.2ms)[0m  SELECT "blorgh_comments".* FROM "blorgh_comments" WHERE "blorgh_comments"."post_id" = ?  [["post_id", 1]]
+  Rendered collection (0.0ms)
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/comments/_form.html.erb (23.9ms)
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/show.html.erb within layouts/blorgh/application (70.3ms)
+Completed 200 OK in 79ms (Views: 74.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/blorgh/application.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+
+
+Started GET "/assets/blorgh/comments.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+
+
+Started GET "/assets/blorgh/posts.css?body=1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+
+
+Started GET "/assets/blorgh/comments.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+
+
+Started GET "/assets/blorgh/posts.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+
+
+Started GET "/assets/blorgh/application.js?body=1" for 127.0.0.1 at 2014-08-31 19:49:23 -0600
+
+
+Started POST "/blorgh/posts/1/comments" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+Processing by Blorgh::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dlQpESJY/+CPVa6vQOL7TBW3tulZz7Ehqlm8RbewOIw=", "comment"=>{"text"=>"right!"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mBlorgh::Post Load (0.2ms)[0m  [1mSELECT "blorgh_posts".* FROM "blorgh_posts" WHERE "blorgh_posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "blorgh_comments" ("created_at", "post_id", "text", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Mon, 01 Sep 2014 01:50:41 UTC +00:00], ["post_id", 1], ["text", "right!"], ["updated_at", Mon, 01 Sep 2014 01:50:41 UTC +00:00]]
+  [1m[35m (115.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/blorgh/posts
+Completed 302 Found in 125ms (ActiveRecord: 116.5ms)
+
+
+Started GET "/blorgh/posts" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+Processing by Blorgh::PostsController#index as HTML
+  [1m[36mBlorgh::Post Load (0.4ms)[0m  [1mSELECT "blorgh_posts".* FROM "blorgh_posts"[0m
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/index.html.erb within layouts/blorgh/application (4.4ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/blorgh/application.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+
+
+Started GET "/assets/blorgh/comments.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+
+
+Started GET "/assets/blorgh/posts.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+
+
+Started GET "/assets/blorgh/comments.js?body=1" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+
+
+Started GET "/assets/blorgh/application.js?body=1" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+
+
+Started GET "/assets/blorgh/posts.js?body=1" for 127.0.0.1 at 2014-08-31 19:50:41 -0600
+
+
+Started GET "/blorgh/posts/1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+Processing by Blorgh::PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBlorgh::Post Load (0.2ms)[0m  SELECT "blorgh_posts".* FROM "blorgh_posts" WHERE "blorgh_posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mBlorgh::Comment Load (0.2ms)[0m  [1mSELECT "blorgh_comments".* FROM "blorgh_comments" WHERE "blorgh_comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/comments/_comment.html.erb (0.7ms)
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/comments/_form.html.erb (3.2ms)
+  Rendered /home/jose/Programming-Projects/blorgh/app/views/blorgh/posts/show.html.erb within layouts/blorgh/application (9.5ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/blorgh/posts.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+
+
+Started GET "/assets/blorgh/comments.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+
+
+Started GET "/assets/blorgh/application.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+
+
+Started GET "/assets/scaffold.css?body=1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+
+
+Started GET "/assets/blorgh/comments.js?body=1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+
+
+Started GET "/assets/blorgh/posts.js?body=1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+
+
+Started GET "/assets/blorgh/application.js?body=1" for 127.0.0.1 at 2014-08-31 19:50:47 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-05 06:21:14 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/railties-4.0.9/lib/rails/templates/rails/welcome/index.html.erb (5.3ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/blorgh" for 127.0.0.1 at 2014-10-05 06:21:20 -0600
+Processing by Blorgh::PostsController#index as HTML
+Completed 500 Internal Server Error in 29ms
+
+NoMethodError (undefined method `constantize' for nil:NilClass):
+  /home/jose/Programming-Projects/blorgh/lib/blorgh.rb:6:in `author_class'
+  /home/jose/Programming-Projects/blorgh/app/models/blorgh/post.rb:5:in `<class:Post>'
+  /home/jose/Programming-Projects/blorgh/app/models/blorgh/post.rb:2:in `<module:Blorgh>'
+  /home/jose/Programming-Projects/blorgh/app/models/blorgh/post.rb:1:in `<top (required)>'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:495:in `load_missing_constant'
+  activesupport (4.0.9) lib/active_support/dependencies.rb:184:in `const_missing'
+  /home/jose/Programming-Projects/blorgh/app/controllers/blorgh/posts_controller.rb:9:in `index'
+  actionpack (4.0.9) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.9) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.9) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:393:in `_run__4607689769464989586__process_action__callbacks'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.9) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.0.9) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.9) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.9) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.9) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.9) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  railties (4.0.9) lib/rails/engine.rb:511:in `call'
+  railties (4.0.9) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.9) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.9) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.9) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:373:in `_run__3771014065401764340__call__callbacks'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.9) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.9) lib/rails/engine.rb:511:in `call'
+  railties (4.0.9) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/jose/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/jose/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/jose/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.7ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (30.9ms)
+
+
+Started GET "/blorgh" for 127.0.0.1 at 2014-10-05 06:22:31 -0600
+Processing by Blorgh::PostsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (uninitialized constant User):
+  activesupport (4.0.9) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.9) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.9) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.9) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.9) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.9) lib/active_support/core_ext/string/inflections.rb:66:in `constantize'
+  /home/jose/Programming-Projects/blorgh/lib/blorgh.rb:6:in `author_class'
+  /home/jose/Programming-Projects/blorgh/app/models/blorgh/post.rb:5:in `<class:Post>'
+  /home/jose/Programming-Projects/blorgh/app/models/blorgh/post.rb:2:in `<module:Blorgh>'
+  /home/jose/Programming-Projects/blorgh/app/models/blorgh/post.rb:1:in `<top (required)>'
+  /home/jose/Programming-Projects/blorgh/app/controllers/blorgh/posts_controller.rb:9:in `index'
+  actionpack (4.0.9) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.9) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.9) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:393:in `_run__2370332272244995598__process_action__callbacks'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.9) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.9) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.9) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.9) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.9) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.0.9) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.9) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.9) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.9) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.9) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.9) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  railties (4.0.9) lib/rails/engine.rb:511:in `call'
+  railties (4.0.9) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.9) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.9) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.9) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.9) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.9) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:373:in `_run__2712091486844342883__call__callbacks'
+  activesupport (4.0.9) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.9) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.9) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.9) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.9) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.9) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.9) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.9) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.9) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.9) lib/rails/engine.rb:511:in `call'
+  railties (4.0.9) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/jose/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/jose/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/jose/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+  Rendered /home/jose/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20141005122614)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141005122614"]]
+  [1m[36m (101.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateBlorghPosts (20141005123111)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "blorgh_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "text" text, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "blorgh_posts" already exists: CREATE TABLE "blorgh_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "text" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
